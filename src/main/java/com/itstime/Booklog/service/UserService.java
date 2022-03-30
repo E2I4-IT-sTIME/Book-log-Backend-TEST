@@ -23,6 +23,6 @@ public class UserService {
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         user.setPassword(encPassword);
         //user.setRole(user.getRole());
-        userRepository.save(user);
+        //userRepository.save(user);
     }
 }
