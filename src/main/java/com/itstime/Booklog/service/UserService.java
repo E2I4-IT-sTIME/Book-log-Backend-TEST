@@ -14,7 +14,6 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     // 회원가입
