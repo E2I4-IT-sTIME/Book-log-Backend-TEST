@@ -16,7 +16,8 @@ public class UserApiController {
     @PostMapping("/auth/joinProc")
     public String join(JoinDto joinDto) {
         User user = joinDto.toEntity();
+        System.out.println("user = " + user);
         userService.join(user);
-        return "loginForm";
+        return "loginForm.html";
     }
 }
