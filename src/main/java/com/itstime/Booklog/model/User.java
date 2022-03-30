@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "User")
 public class User {
 
     @Id  // Primary key
