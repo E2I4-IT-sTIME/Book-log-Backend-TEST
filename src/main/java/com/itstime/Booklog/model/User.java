@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.itstime.Booklog.model;
 
 
