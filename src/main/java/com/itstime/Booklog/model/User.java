@@ -6,9 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -36,8 +38,8 @@ public class User {
     private String imgHome;
     private String imgpath;
 
-    @Column(nullable = true)
-    private String birthday;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private LocalDate birthday;
 
     @Column(nullable = true)
     private String job;
