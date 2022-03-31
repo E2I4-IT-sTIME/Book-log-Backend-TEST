@@ -28,7 +28,7 @@ public class UserController {
         return "test";
     }
 
-    @GetMapping("/auth/logout")
+    @GetMapping("/logoutForm")
     public String logout() {
         return "logout";
     }
