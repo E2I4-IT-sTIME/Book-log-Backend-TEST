@@ -1,6 +1,7 @@
 package com.itstime.Booklog.config;
 
 import com.itstime.Booklog.config.auth.PrincipalDetailService;
+import com.itstime.Booklog.config.oauth.PrincipalOauth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PrincipalDetailService principalDetailService;
+
+    private final PrincipalOauth2UserService principalOauth2UserService;
 
     @Bean
     public BCryptPasswordEncoder encodePWD(){
@@ -43,7 +46,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
-                .invalidateHttpSession(true);
+                .invalidateHttpSession(true)
+                .and()
+                .oauth2Login()
+                .loginPage("/auth/loginForm")
+                .userInfoEndpoint()
+                .userService(principalOauth2UserService);
     }
 
     @Override  // 로그인시 필요한 정보 가져옴
