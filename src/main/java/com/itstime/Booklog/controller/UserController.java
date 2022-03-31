@@ -1,7 +1,11 @@
 package com.itstime.Booklog.controller;
 
+import com.itstime.Booklog.config.auth.PrincipalDetail;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class UserController {
@@ -16,5 +20,16 @@ public class UserController {
     @GetMapping("/auth/loginForm")
     public String loginForm() {
         return "loginForm";
+    }
+
+    @GetMapping("/test/{id}")
+    public String test(@PathVariable("id") Integer id, @AuthenticationPrincipal PrincipalDetail principalDetail, Model model) {
+        model.addAttribute("user", principalDetail.getUser());
+        return "test";
+    }
+
+    @GetMapping("/auth/logout")
+    public String logout() {
+        return "logout";
     }
 }

@@ -1,12 +1,16 @@
 package com.itstime.Booklog.config.auth;
 
 import com.itstime.Booklog.model.User;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Getter
+@Setter
 public class PrincipalDetail implements UserDetails {
 
     private User user;
