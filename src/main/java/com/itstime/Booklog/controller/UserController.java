@@ -32,4 +32,5 @@ public class UserController {
     public String logout() {
         return "logout";
     }
+
 }
