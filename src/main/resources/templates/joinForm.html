@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>회원가입 페이지</title>
 </head>
 <body>
@@ -10,41 +10,41 @@
     <form action="/auth/joinProc" method="post">
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" placeholder="Enter username" id="username">
+            <input type="text" class="form-control" placeholder="Enter username" id="username" name="username">
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" placeholder="Enter password" id="password">
+            <input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
         </div>
 
         <div class="form-group">
             <label for="nickname">Nickname</label>
-            <input type="text" class="form-control" placeholder="Enter nickname" id="nickname">
+            <input type="text" class="form-control" placeholder="Enter nickname" id="nickname" name="nickname">
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Enter email" id="email">
+            <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
         </div>
 
         <div class="form-group">
             <label for="birthday">Birthday</label>
-            <input type="text" class="form-control" placeholder="Enter birthday" id="birthday">
+            <input type="text" class="form-control" placeholder="yyyy-MM-dd" id="birthday" name="birthday">
         </div>
 
         <div class="form-group">
             <label for="job">Job</label>
-            <input type="text" class="form-control" placeholder="Enter job" id="job">
+            <input type="text" class="form-control" placeholder="Enter job" id="job" name="job">
         </div>
 
         <div class="form-group">
             <label for="area">Area</label>
-            <input type="text" class="form-control" placeholder="Enter area" id="area">
+            <input type="text" class="form-control" placeholder="Enter area" id="area" name="area">
         </div>
 
+        <button id="btn-save" class="btn btn-primary">회원가입하기</button>
     </form>
-    <button id="btn-save" class="btn btn-primary">회원가입하기</button>
 
 </div>
 </body>

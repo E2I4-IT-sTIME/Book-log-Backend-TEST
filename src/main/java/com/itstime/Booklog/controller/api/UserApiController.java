@@ -18,6 +18,6 @@ public class UserApiController {
         User user = joinDto.toEntity();
         System.out.println("user = " + user);
         userService.join(user);
-        return "loginForm.html";
+        return "loginForm";
     }
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class PrincipalDetail implements UserDetails {
+
     private User user;
 
     public PrincipalDetail(User user) {

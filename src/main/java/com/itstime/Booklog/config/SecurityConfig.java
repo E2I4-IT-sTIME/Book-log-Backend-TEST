@@ -2,7 +2,6 @@ package com.itstime.Booklog.config;
 
 import com.itstime.Booklog.config.auth.PrincipalDetailService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -31,14 +30,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/**","/")
+                .antMatchers("/", "/auth/**")
                 .permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/auth/loginForm.html")
+                .loginPage("/auth/loginForm")
                 .loginProcessingUrl("/auth/loginProc")
                 .defaultSuccessUrl("/")
                 .and()
@@ -50,6 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override  // 로그인시 필요한 정보 가져옴
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(principalDetailService)
-                .passwordEncoder(new BCryptPasswordEncoder());
+                .passwordEncoder(encodePWD());
     }
 }
