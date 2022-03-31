@@ -9,6 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
@@ -31,6 +33,7 @@ public class User {
     private String password;
 
     @Column(nullable = false, unique = true)
+//    @NotNull
     private String nickname;
 
     @Column(nullable = false)
@@ -40,7 +43,7 @@ public class User {
     private String imgpath;
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private LocalDate birthday;
+    private Date birthday;
 
     @Column(nullable = true)
     private String job;

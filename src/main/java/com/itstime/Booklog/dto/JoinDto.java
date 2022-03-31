@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Data
@@ -16,7 +17,7 @@ public class JoinDto {
     private String password;
     private String nickname;
     private String email;
-    private LocalDate birthday;
+    private Date birthday;
     private String job;
     private String area;
     private boolean active;
@@ -26,7 +27,7 @@ public class JoinDto {
         return User.builder()
                 .username(username)
                 .password(password)
-                .username(nickname)
+                .nickname(nickname)
                 .email(email)
                 .birthday(birthday)
                 .job(job)
