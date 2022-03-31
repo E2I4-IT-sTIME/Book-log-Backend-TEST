@@ -43,7 +43,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
-                .invalidateHttpSession(true);
+                .invalidateHttpSession(true)
+                .and()
+                .oauth2Login()
+                .loginPage("/auth/loginForm");
     }
 
     @Override  // 로그인시 필요한 정보 가져옴
