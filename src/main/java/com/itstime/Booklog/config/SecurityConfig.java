@@ -3,6 +3,7 @@ package com.itstime.Booklog.config;
 import com.itstime.Booklog.config.auth.PrincipalDetailService;
 import com.itstime.Booklog.config.oauth.PrincipalOauth2UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -40,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/auth/loginForm")
-                .loginProcessingUrl("/loginProc")
+                .loginProcessingUrl("/auth/loginProc")
                 .defaultSuccessUrl("/")
                 .and()
                 .logout()

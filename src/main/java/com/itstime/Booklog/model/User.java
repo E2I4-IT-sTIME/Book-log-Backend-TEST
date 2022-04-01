@@ -62,4 +62,26 @@ public class User {
 
     private String oauth;
 
+    private String provider;
+    private String providerId;
+
+    @Builder
+    public User(String username, String password, String nickname, String email, Date birthday, String job,
+                String area, boolean active, RoleType role, Timestamp createDate, String oauth, String provider, String providerId) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.email = email;
+        this.imgHome = imgHome;
+        this.imgpath = imgpath;
+        this.birthday = birthday;
+        this.job = job;
+        this.area = area;
+        this.active = active;
+        this.role = role;
+        this.createDate = createDate;
+        this.oauth = oauth;
+        this.provider = provider;
+        this.providerId = providerId;
+    }
 }
