@@ -62,4 +62,21 @@ public class User {
 
     private String oauth;
 
+    private String provider;
+    private String providerId;
+
+    // 나중에 지우기
+    @Builder
+    public User(String username, String password, String nickname, String email, Date birthday, String job, String area, RoleType role, String provider, String providerId) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.email = email;
+        this.birthday = birthday;
+        this.job = job;
+        this.area = area;
+        this.role = role;
+        this.provider = provider;
+        this.providerId = providerId;
+    }
 }

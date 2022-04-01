@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<h2><span th:text="${user.getUsername()}"></span>님 환영합니다!</h2>
+<h2><span th:text="${user.getNickname()}"></span>님 환영합니다!</h2>
+
+<a sec:authorize="isAuthenticated()" class="btn btn-primary">로그인완료</a>
+<a sec:authorize="!isAuthenticated()" class="btn btn-primary">로그인완료X</a>
+</body>
+</html>
