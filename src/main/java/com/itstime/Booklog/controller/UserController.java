@@ -1,6 +1,6 @@
 package com.itstime.Booklog.controller;
 
-import com.itstime.Booklog.config.auth.PrincipalDetail;
+import com.itstime.Booklog.config.auth.PrincipalDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,32 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 
-    @GetMapping("/test/login")
-    public @ResponseBody String testLogin(Authentication authentication, @AuthenticationPrincipal PrincipalDetail userDetails){
-        System.out.println("/test/login =================");
-        PrincipalDetail principalDetail = (PrincipalDetail)authentication.getPrincipal();
-        System.out.println("authentication : " + principalDetail.getUser());
-
-        System.out.println("userDetails : " + userDetails.getUser());
-        return "세션 정보 확인하기";
-    }
-
-    @GetMapping("/test/oauth/login")
-    public @ResponseBody String testOAuthLogin(Authentication authentication, @AuthenticationPrincipal OAuth2User oauth){
-        System.out.println("/test/oauth/login =================");
-        OAuth2User oauth2User = (OAuth2User)authentication.getPrincipal();
-        System.out.println("authentication : " + oauth2User.getAttributes());
-        System.out.println("oauth2User : " + oauth.getAttributes());
-
-        return "OAuth 세션 정보 확인하기";
-    }
-
-    @GetMapping("/user")
-    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetail principalDetail){
-        System.out.println("principalDetail = " + principalDetail.getUser());
-        return "user";
-    }
-
     // 회원가입 페이지
     @GetMapping("/auth/joinForm")
     public String joinForm() {
@@ -52,15 +26,46 @@ public class UserController {
         return "loginForm";
     }
 
+    // 테스트
     @GetMapping("/test/{id}")
-    public String test(@PathVariable("id") Integer id, @AuthenticationPrincipal PrincipalDetail principalDetail, Model model) {
-        model.addAttribute("user", principalDetail.getUser());
+    public String test(@PathVariable("id") Integer id, @AuthenticationPrincipal PrincipalDetails principalDetails, Model model) {
+        model.addAttribute("user", principalDetails.getUser());
         return "test";
     }
 
+    // 로그아웃 테스트
     @GetMapping("/logoutForm")
     public String logout() {
         return "logout";
+    }
+
+    // 일반로그인
+    // 세션 정보 확인 테스트 - 파라미터에 두 가지 방법
+    @GetMapping("/test/login")
+    public @ResponseBody String testLogin(Authentication authentication, @AuthenticationPrincipal PrincipalDetails userDetails) {
+        System.out.println("/test/login ========================");
+        PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+        System.out.println("authentication = " + principalDetails.getUser());
+
+        System.out.println("userDetails = " + userDetails.getUser());
+        return "세션 정보 확인하기";
+    }
+
+    // OAuth2 테스트
+    @GetMapping("/test/oauth/login")
+    public @ResponseBody String testOAuthLogin(Authentication authentication, @AuthenticationPrincipal OAuth2User oauth) {
+        System.out.println("/test/oauth/login ========================");
+        OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
+        System.out.println("authentication = " + oAuth2User.getAttributes());
+        System.out.println("oauth = " + oauth.getAttributes());
+        return "OAuth 세션 정보 확인하기";
+    }
+
+    // PrincipalDetails에 UserDetails, OAuth2User 둘 다 넣은 테스트
+    @GetMapping("/user")
+    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+        System.out.println("principalDetails = " + principalDetails.getUser());
+        return "user";
     }
 
 }

@@ -1,6 +1,6 @@
 package com.itstime.Booklog.config;
 
-import com.itstime.Booklog.config.auth.PrincipalDetailService;
+import com.itstime.Booklog.config.auth.PrincipalDetailsService;
 import com.itstime.Booklog.config.oauth.PrincipalOauth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final PrincipalDetailService principalDetailService;
+    private final PrincipalDetailsService principalDetailsService;
 
     private final PrincipalOauth2UserService principalOauth2UserService;
 
@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override  // 로그인시 필요한 정보 가져옴
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(principalDetailService)
+        auth.userDetailsService(principalDetailsService)
                 .passwordEncoder(encodePWD());
     }
 }
