@@ -1,5 +1,6 @@
 package com.itstime.Booklog.config;
 
+import com.itstime.Booklog.config.auth.MyLoginSuccessHandler;
 import com.itstime.Booklog.config.auth.PrincipalDetailsService;
 import com.itstime.Booklog.config.oauth.PrincipalOauth2UserService;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +12,19 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @RequiredArgsConstructor
 @Configuration
@@ -49,10 +62,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .and()
                 .oauth2Login()
+                .defaultSuccessUrl("/test/user")
                 .loginPage("/auth/loginForm")
                 .userInfoEndpoint()
                 .userService(principalOauth2UserService);
+//                .and()
+//                .successHandler(new MyLoginSuccessHandler() {
+//
+//                });
     }
+
 
     @Override  // 로그인시 필요한 정보 가져옴
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
