@@ -3,7 +3,6 @@ package com.itstime.Booklog.controller;
 import com.itstime.Booklog.config.auth.PrincipalDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,5 +66,11 @@ public class UserController {
         System.out.println("principalDetails = " + principalDetails.getUser());
         return "user";
     }
+
+    @GetMapping("/test/user")
+    public @ResponseBody String testUser(){
+        return "이동성공";
+    }
+
 
 }
