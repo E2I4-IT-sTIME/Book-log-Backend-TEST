@@ -2,6 +2,7 @@ package com.itstime.Booklog.config.oauth;
 
 import com.itstime.Booklog.config.auth.PrincipalDetails;
 import com.itstime.Booklog.config.provider.GoogleUserInfo;
+import com.itstime.Booklog.config.provider.KakaoUserInfo;
 import com.itstime.Booklog.config.provider.NaverUserInfo;
 import com.itstime.Booklog.config.provider.OAuth2UserInfo;
 import com.itstime.Booklog.model.RoleType;
@@ -43,7 +44,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
             oAuth2UserInfo = new NaverUserInfo((Map)oAuth2User.getAttributes().get("response"));
         } else if (userRequest.getClientRegistration().getRegistrationId().equals("kakao")) {
             System.out.println("카카오 로그인 요청");
-            oAuth2UserInfo = null;
+            oAuth2UserInfo = new KakaoUserInfo(oAuth2User.getAttributes());
         } else {
             System.out.println("우리는 구글, 네이버, 카카오톡 지원해요~!");
         }
