@@ -1,9 +1,9 @@
 package com.itstime.Booklog.config.oauth;
 
 import com.itstime.Booklog.config.auth.PrincipalDetails;
-import com.itstime.Booklog.config.oauth.provider.GoogleUserInfo;
-import com.itstime.Booklog.config.oauth.provider.NaverUserInfo;
-import com.itstime.Booklog.config.oauth.provider.OAuth2UserInfo;
+import com.itstime.Booklog.config.provider.GoogleUserInfo;
+import com.itstime.Booklog.config.provider.NaverUserInfo;
+import com.itstime.Booklog.config.provider.OAuth2UserInfo;
 import com.itstime.Booklog.model.RoleType;
 import com.itstime.Booklog.model.User;
 import com.itstime.Booklog.repository.UserRepository;

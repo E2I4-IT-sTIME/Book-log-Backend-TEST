@@ -1,4 +1,4 @@
-package com.itstime.Booklog.config.oauth.provider;
+package com.itstime.Booklog.config.provider;
 
 import java.util.Map;
 
