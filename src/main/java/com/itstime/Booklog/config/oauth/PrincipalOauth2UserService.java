@@ -44,7 +44,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
             oAuth2UserInfo = new NaverUserInfo((Map)oAuth2User.getAttributes().get("response"));
         } else if (userRequest.getClientRegistration().getRegistrationId().equals("kakao")) {
             System.out.println("카카오 로그인 요청");
-            oAuth2UserInfo = null;
+            oAuth2UserInfo = new KakaoUserInfo(oAuth2User.getAttributes());
         } else {
             System.out.println("우리는 구글, 네이버, 카카오톡 지원해요~!");
         }
