@@ -2,6 +2,7 @@ package com.itstime.Booklog.config.oauth;
 
 import com.itstime.Booklog.config.auth.PrincipalDetails;
 import com.itstime.Booklog.config.provider.GoogleUserInfo;
+import com.itstime.Booklog.config.provider.KakaoUserInfo;
 import com.itstime.Booklog.config.provider.NaverUserInfo;
 import com.itstime.Booklog.config.provider.OAuth2UserInfo;
 import com.itstime.Booklog.model.RoleType;

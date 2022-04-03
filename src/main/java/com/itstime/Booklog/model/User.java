@@ -59,7 +59,7 @@ public class User {
     @CreationTimestamp
     private Timestamp createDate;
 
-    private String oauth;
+    //private String oauth;
 
     private String provider;
     private String providerId;
