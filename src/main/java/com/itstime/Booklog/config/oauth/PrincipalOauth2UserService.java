@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+
+// 일반로그인 vs 소셜로그인 사용자 구분 -> provider 유무로 구분
+
 @RequiredArgsConstructor
 @Service
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
@@ -33,19 +36,29 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         System.out.println("getAttributes = " + oAuth2User.getAttributes());
 
         OAuth2UserInfo oAuth2UserInfo = null;
-        if(userRequest.getClientRegistration().getRegistrationId().equals("google")){
+        if (userRequest.getClientRegistration().getRegistrationId().equals("google")) {
             System.out.println("구글 로그인 요청");
             oAuth2UserInfo = new GoogleUserInfo(oAuth2User.getAttributes());
-        }else if (userRequest.getClientRegistration().getRegistrationId().equals("naver")){
+        } else if (userRequest.getClientRegistration().getRegistrationId().equals("naver")) {
             System.out.println("네이버 로그인 요청");
             oAuth2UserInfo = new NaverUserInfo((Map)oAuth2User.getAttributes().get("response"));
-        }else{
-            System.out.println("구글, 네이버, 카카오만 지원합니다.");
+        } else if (userRequest.getClientRegistration().getRegistrationId().equals("kakao")) {
+            System.out.println("카카오 로그인 요청");
+            oAuth2UserInfo = null;
+        } else {
+            System.out.println("우리는 구글, 네이버, 카카오톡 지원해요~!");
         }
 
+//        String provider = userRequest.getClientRegistration().getRegistrationId(); // google
+//        String providerId = oAuth2User.getAttribute("sub"); // 100704336381471839854
+//        String username = provider + "_" + providerId; // username = google_100704336381471839854
+//        String password = new BCryptPasswordEncoder().encode("book");
+//        String email = oAuth2User.getAttribute("email");
+//        String role = "ROLE_USER";
+
         String provider = oAuth2UserInfo.getProvider();
-        String providerId = oAuth2UserInfo.getProviderId(); // 100704336381471839854
-        String username = provider + "_" + providerId; // username = google_100704336381471839854
+        String providerId = oAuth2UserInfo.getProviderId();
+        String username = provider + "_" + providerId;
         String password = new BCryptPasswordEncoder().encode("book");
         String email = oAuth2UserInfo.getEmail();
         String role = "ROLE_USER";
@@ -68,9 +81,10 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
                     .role(RoleType.USER)
                     .build();
             userRepository.save(userEntity);
-            System.out.println("OAuth 로그인이 최초입니다.");
+            System.out.println("소셜로그인이 최초입니다.");
         } else {
-            System.out.println("로그인을 이미 한적이 있습니다. 당신은 자동회원가입이 되어 있습니다. ");
+            System.out.println("소셜로그인이 이미 되어있어 자동 로그인 됩니다.");
+
         }
 
 

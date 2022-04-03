@@ -2,7 +2,8 @@ package com.itstime.Booklog.config.provider;
 
 public interface OAuth2UserInfo {
     String getProviderId();
-    String getProvider();  // 구글, 네이버, 카카오
+
+    String getProvider();
     String getEmail();
     String getName();
 }
