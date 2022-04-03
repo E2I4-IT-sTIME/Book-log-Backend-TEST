@@ -62,14 +62,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .and()
                 .oauth2Login()
-                .defaultSuccessUrl("/test/user")
+//                .defaultSuccessUrl("/test/user")
                 .loginPage("/auth/loginForm")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/logoutForm")
+                .and()
+                .oauth2Login()
                 .userInfoEndpoint()
                 .userService(principalOauth2UserService);
-//                .and()
-//                .successHandler(new MyLoginSuccessHandler() {
-//
-//                });
     }
 
 
