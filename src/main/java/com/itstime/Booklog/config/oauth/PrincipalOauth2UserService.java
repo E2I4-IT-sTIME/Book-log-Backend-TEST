@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+
 // 일반로그인 vs 소셜로그인 사용자 구분 -> provider 유무로 구분
 
 @RequiredArgsConstructor
@@ -83,6 +84,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
             System.out.println("소셜로그인이 최초입니다.");
         } else {
             System.out.println("소셜로그인이 이미 되어있어 자동 로그인 됩니다.");
+
         }
 
 
