@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Table(name = "review")
 public class Review {
 
@@ -20,5 +19,12 @@ public class Review {
     private Long id;
 
     @Column(nullable = false)
-    private Long userid;
+    private Long userInfo_id;
+
+    private Long portfolio_id;
+
+    private String title;
+
+    @Lob
+    private String text;
 }

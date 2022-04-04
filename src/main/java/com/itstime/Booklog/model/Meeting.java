@@ -26,7 +26,7 @@ public class Meeting {
     @Column(nullable = false)
     private String name;
 
-    private List<User> users = new ArrayList<>();
+    //private List<User> users = new ArrayList<>();
 
     private String method;
 

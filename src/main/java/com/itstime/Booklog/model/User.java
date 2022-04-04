@@ -19,12 +19,14 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "User")
+@Table(name = "user")
 public class User {
 
     @Id  // Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long userInfo_id;
 
     @Column(nullable = false)
     private String username;
@@ -58,8 +60,6 @@ public class User {
 
     @CreationTimestamp
     private Timestamp createDate;
-
-    //private String oauth;
 
     private String provider;
     private String providerId;
