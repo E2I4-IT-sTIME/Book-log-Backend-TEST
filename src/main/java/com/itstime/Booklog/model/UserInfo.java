@@ -15,23 +15,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
 @Table(name="userinfo")
 public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userid;
+    private Long id;
 
-    private List<Portfolio> portfolio = new ArrayList<>();
+    private Long user_id;
 
-    private List<Review> review = new ArrayList<>();
+    private List<Portfolio> portfolios = new ArrayList<>();
 
-    private List<Meeting> meeting = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();
 
-    private int heart;
+    private List<Meeting> meetings = new ArrayList<>();
 
-    @Column(nullable = false)
-    @Size(min = 0, max= 100)
-    private Long temperature;
+    //private int heart;
+
+//    @Column(nullable = false)
+//    @Size(min = 0, max= 100)
+//    private Long temperature;
 }
