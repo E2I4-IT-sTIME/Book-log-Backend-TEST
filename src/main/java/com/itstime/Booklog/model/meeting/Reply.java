@@ -1,6 +1,7 @@
-package com.itstime.Booklog.model;
+package com.itstime.Booklog.model.meeting;
 
 
+import com.itstime.Booklog.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,12 @@ public class Reply {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long meetingboard_id;
+    @ManyToOne
+    @JoinColumn(name = "meetingBoard_id")
+    private Meeting_board meetingBoard_id;
 
-    @Column(nullable = false)
-    private Long user_id;
+    @ManyToOne
+    private User user_id;
 
     @Lob
     private String text;

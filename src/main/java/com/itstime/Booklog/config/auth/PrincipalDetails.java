@@ -1,6 +1,6 @@
 package com.itstime.Booklog.config.auth;
 
-import com.itstime.Booklog.model.User;
+import com.itstime.Booklog.model.user.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

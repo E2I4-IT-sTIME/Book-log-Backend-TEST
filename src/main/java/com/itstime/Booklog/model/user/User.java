@@ -1,4 +1,4 @@
-package com.itstime.Booklog.model;
+package com.itstime.Booklog.model.user;
 
 
 import lombok.AllArgsConstructor;
@@ -9,10 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -26,7 +24,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userInfo_id;
+    @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL)
+    private UserInfo userInfo_id;
 
     @Column(nullable = false)
     private String username;
