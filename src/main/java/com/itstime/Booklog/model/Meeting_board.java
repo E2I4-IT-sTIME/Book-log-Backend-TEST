@@ -1,37 +1,46 @@
 package com.itstime.Booklog.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "givechange")
-public class GiveChange {
+@Table(name = "meeting_board")
+public class Meeting_board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    @Size(min = 2, max = 30, message = "책 이름은 2자이상 30자 이하여야 합니다.")
+    private Long meeting_id;
+
+    @Column(nullable = false)
+    private Long reply_id;
+
+    @Column(nullable = false)
+    private Long user_id;
+
+    @Column(nullable = false)
     private String name;
 
-    private User seller;
+    @Column(nullable = false)
+    private User user;
 
     @Column(nullable = false)
-    private String photo;
+    private boolean onoff;
 
-    @Column(nullable = false)
-    private String area;
+    private int maximum;
 
     @CreationTimestamp
-    private Timestamp createDate;
+    private Timestamp timestamp;
+
 }
