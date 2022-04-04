@@ -1,13 +1,12 @@
 package com.itstime.Booklog.dto;
 
-import com.itstime.Booklog.model.RoleType;
-import com.itstime.Booklog.model.User;
+import com.itstime.Booklog.model.user.RoleType;
+import com.itstime.Booklog.model.user.User;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 @Data
 @Getter

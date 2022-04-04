@@ -1,4 +1,4 @@
-package com.itstime.Booklog.model;
+package com.itstime.Booklog.model.user;
 
 public enum RoleType {
     USER, ADMIN
