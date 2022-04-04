@@ -1,9 +1,8 @@
 package com.itstime.Booklog.service;
 
-import com.itstime.Booklog.model.User;
+import com.itstime.Booklog.model.user.User;
 import com.itstime.Booklog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,7 @@
-package com.itstime.Booklog.model;
+package com.itstime.Booklog.model.meeting;
 
 
+import com.itstime.Booklog.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "userQnA")
+@Table(name = "user_qna")
 public class UserQnA {
 
     @Id
@@ -27,10 +28,12 @@ public class UserQnA {
     @Lob
     private String a3;
 
-    @Column(nullable = false)
-    private Long adminQnA_id;
+    @OneToOne
+    @JoinColumn(name = "admin_qna_id")
+    private AdminQnA admin_qna_id;
 
-    @Column(nullable = false)
-    private Long user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user_id;
 
 }

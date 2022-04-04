@@ -1,4 +1,4 @@
-package com.itstime.Booklog.model;
+package com.itstime.Booklog.model.meeting;
 
 
 import lombok.AllArgsConstructor;
@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,27 +21,23 @@ public class Meeting_board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long meeting_id;
+    @OneToOne
+    @JoinColumn(name = "meeting_id")
+    private Meeting meeting_id;
+
+    @OneToMany(mappedBy = "meetingBoard_id", cascade = CascadeType.ALL)
+    private List<Reply> reply_id;
 
     @Column(nullable = false)
-    private Long reply_id;
+    private String title;
 
     @Column(nullable = false)
-    private Long user_id;
+    @Lob
+    private String content;
 
     @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
-    private User user;
-
-    @Column(nullable = false)
-    private boolean onoff;
-
-    private int maximum;
+    private int notice;
 
     @CreationTimestamp
-    private Timestamp timestamp;
-
+    private Timestamp createDate;
 }
