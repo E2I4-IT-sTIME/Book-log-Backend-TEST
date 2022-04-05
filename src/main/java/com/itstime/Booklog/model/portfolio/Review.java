@@ -24,7 +24,8 @@ public class Review {
     @JoinColumn(name = "userInfo_id")
     private UserInfo userInfo;
 
-    @ManyToMany(mappedBy = "review")
+
+    @ManyToMany(mappedBy = "reviews")
     private List<Portfolio> portfolio;
 
     private String title;

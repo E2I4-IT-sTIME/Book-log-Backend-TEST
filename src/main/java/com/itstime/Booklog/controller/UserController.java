@@ -1,6 +1,10 @@
 package com.itstime.Booklog.controller;
 
 import com.itstime.Booklog.config.auth.PrincipalDetails;
+import com.itstime.Booklog.model.user.User;
+import com.itstime.Booklog.model.user.UserInfo;
+import com.itstime.Booklog.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -11,7 +15,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
+
+    private final UserRepository userRepository;
+
 
     // 회원가입 페이지
     @GetMapping("/auth/joinForm")
@@ -71,6 +79,5 @@ public class UserController {
     public @ResponseBody String testUser(){
         return "이동성공";
     }
-
 
 }
