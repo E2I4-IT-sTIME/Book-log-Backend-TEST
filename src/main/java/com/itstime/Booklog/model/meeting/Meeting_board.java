@@ -26,6 +26,7 @@ public class Meeting_board {
     private Meeting meeting;
 
     @OneToMany(mappedBy = "meetingBoard", cascade = CascadeType.ALL)
+
     private List<Reply> replys;
 
     @Column(nullable = false)
