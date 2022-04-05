@@ -22,10 +22,10 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "userInfo_id")
-    private UserInfo userInfo_id;
+    private UserInfo userInfo;
 
-    @ManyToMany(mappedBy = "review_id")
-    private List<Portfolio> portfolio_id;
+    @ManyToMany(mappedBy = "review")
+    private List<Portfolio> portfolio;
 
     private String title;
 

@@ -23,10 +23,10 @@ public class Meeting_board {
 
     @OneToOne
     @JoinColumn(name = "meeting_id")
-    private Meeting meeting_id;
+    private Meeting meeting;
 
-    @OneToMany(mappedBy = "meetingBoard_id", cascade = CascadeType.ALL)
-    private List<Reply> reply_id;
+    @OneToMany(mappedBy = "meetingBoard", cascade = CascadeType.ALL)
+    private List<Reply> reply;
 
     @Column(nullable = false)
     private String title;

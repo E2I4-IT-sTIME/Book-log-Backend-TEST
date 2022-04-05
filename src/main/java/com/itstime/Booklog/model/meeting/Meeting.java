@@ -25,21 +25,21 @@ public class Meeting {
 
     @OneToOne
     @JoinColumn(name = "admin_qna_id")
-    private AdminQnA admin_qna_id;
+    private AdminQnA admin_qna;
 
     @ManyToOne
     @JoinColumn(name = "userInfo_id")
-    private UserInfo userInfo_id; // admin
+    private UserInfo userInfo; // admin
 
     @Column(nullable = false)
     private String name;
 
-    @OneToOne(mappedBy = "meeting_id", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "meeting", cascade = CascadeType.ALL)
     private Meeting_board meeting_board;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "users")
-    private List<User> users = new ArrayList<>();
+//    @OneToMany(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "users")
+//    private List<User> users = new ArrayList<>();
 
     @Column(nullable = false)
     private int method; // online=1, offline=0

@@ -30,10 +30,10 @@ public class UserQnA {
 
     @OneToOne
     @JoinColumn(name = "admin_qna_id")
-    private AdminQnA admin_qna_id;
+    private AdminQnA admin_qna;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user_id;
+    private User user;
 
 }

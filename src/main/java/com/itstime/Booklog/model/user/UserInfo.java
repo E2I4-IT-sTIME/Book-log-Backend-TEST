@@ -25,18 +25,18 @@ public class UserInfo {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user_id;
+    private User user;
 
-    @OneToMany(mappedBy = "userInfo_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Portfolio> portfolios = new ArrayList<>();
 
-    @OneToMany(mappedBy = "userInfo_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Review> reviews = new ArrayList<>();
 
-    @OneToMany(mappedBy = "userInfo_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Meeting> meetings = new ArrayList<>();
 
-    @OneToMany(mappedBy = "userInfo_id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Meeting> admin_meetings = new ArrayList<>();
 
     //private int heart;

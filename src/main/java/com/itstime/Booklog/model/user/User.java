@@ -24,8 +24,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL)
-    private UserInfo userInfo_id;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private UserInfo userInfo;
 
     @Column(nullable = false)
     private String username;
