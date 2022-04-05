@@ -21,11 +21,11 @@ public class Portfolio {
 
     @ManyToOne
     @JoinColumn(name = "userInfo_id")
-    private UserInfo userInfo_id;
+    private UserInfo userInfo;
 
     @ManyToMany
-    @JoinColumn(name = "review_id")
-    private List<Review> review_id;
+    @JoinTable(name = "portfolio_reviews", joinColumns = @JoinColumn(name = "portfolio_id"), inverseJoinColumns = @JoinColumn(name = "review_id"))
+    private List<Review> reviews;
 
     private String title;
 }

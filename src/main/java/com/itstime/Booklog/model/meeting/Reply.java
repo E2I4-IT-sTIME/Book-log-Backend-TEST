@@ -23,10 +23,10 @@ public class Reply {
 
     @ManyToOne
     @JoinColumn(name = "meetingBoard_id")
-    private Meeting_board meetingBoard_id;
+    private Meeting_board meetingBoard;
 
     @ManyToOne
-    private User user_id;
+    private User user;
 
     @Lob
     private String text;

@@ -20,13 +20,13 @@ public class AdminQnA {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "admin_qna_id", cascade = CascadeType.ALL)
-    private Meeting meeting_id;
+    @OneToOne(mappedBy = "admin_qna", cascade = CascadeType.ALL)
+    private Meeting meeting;
 
     @ManyToOne
-    private User user_id;
+    private User user;
 
-    @OneToOne(mappedBy = "admin_qna_id", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "admin_qna", cascade = CascadeType.ALL)
     private UserQnA user_qna;
 
     @Lob
